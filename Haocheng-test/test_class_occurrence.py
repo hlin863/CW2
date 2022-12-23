@@ -16,7 +16,13 @@ for commit in Repository(apache_repos).traverse_commits():
 
     commit_msgs.append(commit.msg) # append the commit message to the list.
 
-    print(commit.msg)
-    print(commit.hash)
-    print(commit.insertions)
-    print(commit.deletions)
+    # print(commit.msg)
+    # print(commit.hash)
+    # print(commit.insertions)
+    # print(commit.deletions)
+
+# convert the commit messages into a dataframe for storage and analysis.
+commit_msgs_df = pd.DataFrame(commit_msgs, columns=['commit_msg'])
+
+# save the commit messages as a csv file.
+commit_msgs_df.to_csv('Data/commit_msgs.csv', index=False)
