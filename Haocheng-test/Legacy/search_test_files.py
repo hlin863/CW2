@@ -13,7 +13,13 @@ r = requests.get(apache_site)
 for line in r.text.splitlines():
 
     if "href=\"/apache/" in line:
+        print("line: {}".format(line))
         repo_name = line.split("/")[2]
         repos.append(repo_name)
 
 print("There are {} repositories in the Apache GitHub site.".format(len(repos)))
+
+# iterate through the list of repositories.
+for repo in repos:
+
+    print("Analysing repository: {}".format(repo))
